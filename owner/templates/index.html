@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+<header class="bg-secondary text-center"><h1>OWNER APPLICATION</h1></header>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <a href="{% url 'addbook'%}" class="btn btn-primary mt-3 px-5">ADD BOOK</a>
+            <a href="{% url 'editbook'%}" class="btn btn-primary mt-3 px-5">EDIT BOOK</a>
+
+            <a href="{% url 'removebook'%}" class="btn btn-primary mt-3 px-5">DELETE BOOK</a>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+</body>
+</html>

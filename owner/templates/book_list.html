@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{%static 'css/book_list.css'%}">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit" class="form-control btn btn-secondary">SEARCH</button>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+
+            <table class="table">
+                <tr>
+                    <td>image</td>
+                    <td>BOOK NAME</td>
+                    <td>AUTHOR</td>
+                    <td>PRICE</td>
+                    <td>COPIES</td>
+                    <td>ACTION</td>
+
+
+                </tr>
+                {%for book in books%}
+                <tr>
+                    <td><img src="{{book.image.url}}" style="height:50px,width:200px" alt=""></td>
+                    <td>{{book.book_name}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.price}}</td>
+                    <td>{{book.copies}}</td>
+                    <td>
+                        <a href="{%url 'bookdetails' book.id %}" class="btn btn-primary">VIEW</a>
+                        <a href="{%url 'editbook' book.id %}" class="btn btn-primary">UPDATE</a>
+                        <a href="{%url 'removebook' book.id %}" class="btn btn-primary">DELETE</a>
+                    </td>
+                </tr>
+
+
+                {%endfor%}
+            </table>
+
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+</body>
+</html>
